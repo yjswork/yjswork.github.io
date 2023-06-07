@@ -1,0 +1,419 @@
+<html><head>	
+    <meta charset="UTF-8">	
+    <title>STYLER: Style Factor Modeling with Rapidity and Robustness via Speech Decomposition for Expressive and Controllable Neural Text to Speech</title>	
+    <link rel="stylesheet" type="text/css" href="./src/stylesheet.css">	
+    <link rel="shortcut icon" href="./src/styler.png">
+  </head>	
+  <body>	
+    <div>	
+      /* <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fkeonlee9420.github.io%2FSTYLER-Demo%2F&amp;count_bg=%2379C83D&amp;title_bg=%23555555&amp;icon=pytorch.svg&amp;icon_color=%23E7E7E7&amp;title=hits&amp;edge_flat=false"></a> */
+      <article>	
+        <header>	
+          <h1>STYLER: Style Factor Modeling with Rapidity and Robustness via Speech Decomposition for Expressive and Controllable Neural Text to Speech</h1>	
+        </header>	
+      </article>	
+      
+      <p><b>Paper: </b><a href="https://arxiv.org/abs/2103.09474" target="_blank">arXiv:2103.09474</a></p>	
+      <p><b>Code: </b><a href="https://github.com/keonlee9420/STYLER" target="_blank">github.com/keonlee9420/STYLER</a></p>	
+      <p><b>Authors: </b>Keon Lee, Kyumin Park, Daeyoung Kim.</p>	
+
+      <p><b>Abstract:</b>	
+        Previous works on neural text-to-speech (TTS) have been addressed on limited speed in training and inference time, robustness for difficult synthesis conditions, expressiveness, and controllability. 
+        Although several approaches resolve some limitations, there has been no attempt to solve all weaknesses at once. 
+        In this paper, we propose STYLER, an expressive and controllable TTS framework with high-speed and robust synthesis. 
+        Our novel audio-text aligning method called Mel Calibrator and excluding autoregressive decoding enable rapid training and inference and robust synthesis on unseen data. 
+        Also, disentangled style factor modeling under supervision enlarges the controllability in synthesizing process leading to expressive TTS. 
+        On top of it, a novel noise modeling pipeline using domain adversarial training and Residual Decoding empowers noise-robust style transfer, decomposing the noise without any additional label. 
+        Various experiments demonstrate that STYLER is more effective in speed and robustness than expressive TTS with autoregressive decoding and more expressive and controllable than reading style non-autoregressive TTS. 
+        Synthesis samples and experiment results are provided via our <a href="https://keonlee9420.github.io/STYLER-Demo/" target="_blank">demo page</a>, and <a href="https://github.com/keonlee9420/STYLER" target="_blank">code</a> is available publicly.
+        </p>	
+      <h2>Style Factor Modeling</h2>	
+      <p>Try various style factor combinations. The model output (middle) is synthesized speech from single noisy audio (left) with given text.
+        The orange line represents pitch contour, and the purple line represents energy.
+        'T', 'D', 'P', 'E', 'S', and 'N' refer to the text, duration, pitch, energy, speaker, and noise encoding.
+        A selected combination of these encodings is fed into the model.
+        Note that the clean audio (right) is shown for the comparison, and it is not given to the model during inference.
+        SNR stands for <a href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio" target="_blank">signal-to-noise ratio</a>, where a ratio higher than 1:1 (greater than 0 dB) indicates more signal than noise.
+      </p>
+         <table class="fixed">
+          <thead>
+          <tr>	
+            <th>Noisy Audio (Ground-truth)</th><th>STYLER</th><th>Clean Audio (Ground-truth)</th>
+          </tr>	
+        </thead>	
+         <tbody>
+           <tr class="info"><td colspan="4"><span>1: Female speaker with SNR 25 (p233_045), <i>"All businesses continue to trade."</i></span></td>
+           </tr>
+           <tr>
+              <td calss="mel"><img id="F_noisy_mel" src="./src/F_p233_045/ref_noisy.png" alt="mel" width="300" height="200"></td>			
+              <td calss="mel"><img id="F_output_mel" src="./src/F_p233_045/inspect1.png" alt="mel" width="300" height="200"></td>		
+              <td calss="mel"><img id="F_clean_mel" src="./src/F_p233_045/ref_clean.png" alt="mel" width="300" height="200"></td>		
+            </tr>	
+           <tr><th></th><th>Combination: 
+             <select name="cars" id="select" onchange="selectComb(this.value)">
+               <option value="F1">T+D+P+E+S+N</option>
+               <option value="F2">T+D+P+E+N</option>
+               <option value="F3">T+D+P+N</option>
+               <option value="F4">T+D+N</option>
+               <option value="F5">T+N</option>
+               <option value="F6">T</option>
+               <option value="F7">T+D</option>
+               <option value="F8">T+D+P</option>
+               <option value="F9">T+D+P+E</option>
+               <option value="F10">T+D+P+E+S</option>
+             </select>
+             </th>
+           </tr><tr>
+             <td><audio id="F_noisy_wav" controls=""><source id="F_noisy_wav_source" src="./src/F_p233_045/ref_noisy.wav" type="audio/wav"></audio></td>
+             <td><audio id="F_output_wav" controls=""><source id="F_output_wav_source" src="./src/F_p233_045/inspect1.wav" type="audio/wav"></audio></td>
+             <td><audio id="F_clean_wav" controls=""><source id="F_clean_wav_source" src="./src/F_p233_045/ref_clean.wav" type="audio/wav"></audio></td>
+           </tr>
+
+           <tr class="info"><td colspan="4"><span>2: Male speaker with SNR 6 (p311_094), <i>"The party has never fully recovered."</i></span></td>
+           </tr>
+           <tr>
+              <td calss="mel"><img id="M_noisy_mel" src="./src/M_p311_094/ref_noisy.png" alt="mel" width="300" height="200"></td>			
+              <td calss="mel"><img id="M_output_mel" src="./src/M_p311_094/inspect1.png" alt="mel" width="300" height="200"></td>		
+              <td calss="mel"><img id="M_clean_mel" src="./src/M_p311_094/ref_clean.png" alt="mel" width="300" height="200"></td>		
+            </tr>	
+           <tr><th></th><th>Combination: 
+             <select name="cars" id="select" onchange="selectComb(this.value)">
+               <option value="M1">T+D+P+E+S+N</option>
+               <option value="M2">T+D+P+E+N</option>
+               <option value="M3">T+D+P+N</option>
+               <option value="M4">T+D+N</option>
+               <option value="M5">T+N</option>
+               <option value="M6">T</option>
+               <option value="M7">T+D</option>
+               <option value="M8">T+D+P</option>
+               <option value="M9">T+D+P+E</option>
+               <option value="M10">T+D+P+E+S</option>
+             </select>
+             </th>
+           </tr><tr>
+             <td><audio id="M_noisy_wav" controls=""><source id="M_noisy_wav_source" src="./src/M_p311_094/ref_noisy.wav" type="audio/wav"></audio></td>
+             <td><audio id="M_output_wav" controls=""><source id="M_output_wav_source" src="./src/M_p311_094/inspect1.wav" type="audio/wav"></audio></td>
+             <td><audio id="M_clean_wav" controls=""><source id="M_clean_wav_source" src="./src/M_p311_094/ref_clean.wav" type="audio/wav"></audio></td>
+           </tr>
+           </tbody>
+        </table>
+
+      <h2>Style Factor Control</h2>	
+      <p>By style factor modeling, STYLER achieved controllability of style factors from different sources (input variants).
+        In other words, input audio can vary for each of the style factors.
+        Here, we demonstrate model controllability on 'T', 'D', 'P', 'E', and 'S' from two different audio of different speakers.
+        In each dropbox, "1" refers to "Reference Audio 1" and "2" refers to "Reference Audio 2", and the corresponding style of selected reference audio is reflected on the output of STYLER.
+        All plots are left-aligned for easy comparison.
+      </p>
+         <table class="fixed">
+          <thead>
+          <tr>	
+            <th>Reference Audio 1 (Ground-truth)</th><th>STYLER</th><th>Reference Audio 2 (Ground-truth)</th>
+          </tr>	
+        </thead>	
+         <tbody>
+          <tr class="info"><td colspan="4"><span>Reference Audio 1: Unseen Female (p323_229), <i>"That period was a struggle."</i></span>
+          <br><span>Reference Audio 2: Seen Male (p259_284), <i>"It makes no difference to their friendship."</i></span>
+          </td>
+          </tr>
+           <tr>
+              <td calss="mel"><img id="cont_ref1_mel" src="./src/control_r1_F_p323_229_r2_M_p259_284/F_p323_229.png" alt="mel" width="300" height="200"></td>			
+              <td calss="mel"><img id="cont_output_mel" src="./src/control_r1_F_p323_229_r2_M_p259_284/11111.png" alt="mel" width="300" height="200"></td>		
+              <td calss="mel"><img id="cont_ref2_mel" src="./src/control_r1_F_p323_229_r2_M_p259_284/M_p259_284.png" alt="mel" width="300" height="200"></td>		
+            </tr>	
+            <tr><th></th><th>
+             T: 
+             <select name="cars" id="select" onchange="selectRef(this.value)">
+               <option value="T1">1</option>
+               <option value="T2">2</option>
+             </select>
+             D: 
+             <select name="cars" id="select" onchange="selectRef(this.value)">
+               <option value="D1">1</option>
+               <option value="D2">2</option>
+             </select>
+             P: 
+             <select name="cars" id="select" onchange="selectRef(this.value)">
+               <option value="P1">1</option>
+               <option value="P2">2</option>
+             </select>
+             E: 
+             <select name="cars" id="select" onchange="selectRef(this.value)">
+               <option value="E1">1</option>
+               <option value="E2">2</option>
+             </select>
+             S: 
+             <select name="cars" id="select" onchange="selectRef(this.value)">
+               <option value="S1">1</option>
+               <option value="S2">2</option>
+             </select>
+             </th>
+             
+           </tr><tr>
+             <td><audio id="cont_ref1_wav" controls=""><source id="cont_ref1_wav" src="./src/control_r1_F_p323_229_r2_M_p259_284/F_p323_229.wav" type="audio/wav"></audio></td>
+             <td><audio id="cont_output_wav" controls=""><source id="cont_output_wav" src="./src/control_r1_F_p323_229_r2_M_p259_284/11111.wav" type="audio/wav"></audio></td>
+             <td><audio id="cont_ref2_wav" controls=""><source id="cont_ref2_wav" src="./src/control_r1_F_p323_229_r2_M_p259_284/M_p259_284.wav" type="audio/wav"></audio></td>
+           </tr>
+
+           </tbody>
+        </table>
+      
+      <h2>Style Transfer</h2>	
+      <p>In style transfer tasks, only clean audio is provided for each model, and the noise encoding is ignored in STYLER.
+        For the parallel transfer, the audio content is the same with the input text.
+        For the non-parallel transfer, the audio content is not matched with the input text.
+      </p>
+      <h3>Parallel samples from <u>seen speaker</u>.</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>STYLER</th><th>FastSpeech2</th><th>Mellotron</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: p234_024, <i>"This is a very common type of bow, one showing mainly red and yellow, with little or no green or blue."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p234_024_s/p234_024_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p234_024_s/p234_024_p_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p234_024_s/p234_024_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p234_024_s/p234_024_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: p248_130, <i>"I had relied on him."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p248_130_s/p248_130_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p248_130_s/p248_130_p_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p248_130_s/p248_130_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p248_130_s/p248_130_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: p226_021, <i>"The difference in the rainbow depends considerably upon the size of the drops, and the width of the colored band increases as the size of the drops increases."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p226_021_s/p226_021_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p226_021_s/p226_021_p_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p226_021_s/p226_021_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p226_021_s/p226_021_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>4: p247_234, <i>"Murray financial has fallen at the first hurdle."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p247_234_s/p247_234_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p247_234_s/p247_234_p_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p247_234_s/p247_234_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p247_234_s/p247_234_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>5: p263_157, <i>"Drugs are used a lot at the fishing, not just cannabis."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>	
+      <h3>Parallel samples from <u>unseen speaker</u>.</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>STYLER</th><th>FastSpeech2</th><th>Mellotron</th>
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: p239_148, <i>"People have been placed in a state of alarm."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_148_us/p239_148_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_148_us/p239_148_p_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_148_us/p239_148_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_148_us/p239_148_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: p239_189, <i>"Millions of british jobs depend on europe."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_189_us/p239_189_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_189_us/p239_189_p_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_189_us/p239_189_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p239_189_us/p239_189_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: p285_085, <i>"Yesterday, he continued to keep a low profile."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_085_us/p285_085_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_085_us/p285_085_p_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_085_us/p285_085_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_085_us/p285_085_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>4: p285_255, <i>"It will now relate to all public bodies in scotland."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_255_us/p285_255_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_255_us/p285_255_p_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_255_us/p285_255_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_255_us/p285_255_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>5: p285_364, <i>"The final decision was between scotland and the republic of ireland."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_364_us/p285_364_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_364_us/p285_364_p_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_364_us/p285_364_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p285_364_us/p285_364_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>	
+
+      <h3>Non-parallel samples from <u>seen speaker</u>.</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>STYLER</th><th>FastSpeech2</th><th>Mellotron</th>
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: p234_024, <i>"This is a very common type of bow, one showing mainly red and yellow, with little or no green or blue."</i> (audio content), <br><i>"Murray financial has fallen at the first hurdle." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p234_024_s/p234_024_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p234_024_s/p234_024_np_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p234_024_s/p234_024_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p234_024_s/p234_024_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: p248_130, <i>"I had relied on him."</i> (audio content), <br><i>"Drugs are used a lot at the fishing, not just cannabis." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p248_130_s/p248_130_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p248_130_s/p248_130_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p248_130_s/p248_130_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p248_130_s/p248_130_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: p226_021, <i>"The difference in the rainbow depends considerably upon the size of the drops, and the width of the colored band increases as the size of the drops increases."</i> (audio content), <br><i>"She can scoop these things into three red bags, and we will go meet her wednesday at the train station." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p226_021_s/p226_021_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p226_021_s/p226_021_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p226_021_s/p226_021_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p226_021_s/p226_021_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>4: p247_234, <i>"Murray financial has fallen at the first hurdle."</i> (audio content), <br><i>"We also need a small plastic snake and a big toy frog for the kids." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p247_234_s/p247_234_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p247_234_s/p247_234_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p247_234_s/p247_234_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p247_234_s/p247_234_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>5: p263_157, <i>"Drugs are used a lot at the fishing, not just cannabis."</i> (audio content), <br><i>"Murray financial has fallen at the first hurdle." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p263_157_s/p263_157_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p263_157_s/p263_157_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p263_157_s/p263_157_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p263_157_s/p263_157_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>	
+      <h3>Non-parallel samples from <u>unseen speaker</u>.</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>STYLER</th><th>FastSpeech2</th><th>Mellotron</th>
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: p323_229, <i>"That period was a struggle."</i> (audio content), <br><i>"Finding suitable replacements would not be easy." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_229_us/p323_229_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_229_us/p323_229_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_229_us/p323_229_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_229_us/p323_229_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: p323_337, <i>"He wasn't really doing anything, so he wanted out."</i> (audio content), <br><i>"People have been placed in a state of alarm." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_337_us/p323_337_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_337_us/p323_337_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_337_us/p323_337_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_337_us/p323_337_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: p279_258, <i>"Blair is very positive at european councils."</i> (audio content), <br><i>"The guidelines are expected to be finalised before next spring." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_258_us/p279_258_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_258_us/p279_258_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_258_us/p279_258_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_258_us/p279_258_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>4: p279_389, <i>"It will take place in july."</i> (audio content), <br><i>"Millions of british jobs depend on europe." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_389_us/p279_389_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_389_us/p279_389_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_389_us/p279_389_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p279_389_us/p279_389_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>5: p323_389, <i>"I did not concentrate on my performance."</i> (audio content), <br><i>"It will now relate to all public bodies in scotland." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_389_us/p323_389_np_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_389_us/p323_389_np_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_389_us/p323_389_np_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/np_p323_389_us/p323_389_np_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>
+
+      <h2>Robustness</h2>	
+      <h3>Repeated and Ignored Words</h3>
+      <table class="fixed">
+        <thead>	
+          <tr>	
+            <th>STYLER</th><th>Mellotron</th>
+          </tr>	
+        </thead>		
+        <tbody>	
+          <tr class="info"><td colspan="2"><span>1: p323_229, <i>"That period was a struggle."</i></span></td></tr>	
+          <tr>
+            <td><audio controls=""><source src="./src/robustness/repeated/p239_345_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/repeated/p239_345_mellotron.wav" type="audio/wav"></audio></td>
+          </tr>
+          <tr class="info"><td colspan="2"><span>2: p248_130, <i>"Had had been had had had not had but had had and had."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/robustness/repeated/p248_130_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/repeated/p248_130_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>
+        </tbody>	
+      </table>
+
+      <h3>Style Transfer from Noisy Reference Audio</h3>
+      <table class="fixed">
+        <thead>	
+          <tr>	
+            <th>Noisy Audio (Ground-truth)</th><th>STYLER (Noisy Decoding)</th><th>STYLER (Clean Decoding)</th><th>Mellotron</th>
+          </tr>	
+        </thead>		
+        <tbody>	
+          <tr class="info"><td colspan="4"><span>1: Male seen speaker with SNR 23 (p237_274), <i>"One mp said he feared the job losses were only the beginning."</i> (audio content), <br><i>"The difference in the rainbow depends considerably upon the size of the drops, and the width of the colored band increases as the size of the drops increases." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_ref_SNR_23.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_styler_noisy.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_styler_clean.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>
+          <tr class="info"><td colspan="4"><span>2: Female seen speaker with SNR 23 (p297_004), <i>"We also need a small plastic snake and a big toy frog for the kids."</i> (audio content), <br><i>"The next eight weeks are critical to us." </i> (target text)</span></td></tr>	
+          <tr>
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_ref_SNR_23.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_styler_noisy.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_styler_clean.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_mellotron.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>	
+      </table>
+
+    </div>	
+  <script type="text/javascript" src="./src/script.js"></script>
+  	
+	
+</body></html>
