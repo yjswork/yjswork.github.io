@@ -1,0 +1,328 @@
+<html><head>	
+    <meta charset="UTF-8">	
+    <title>Demo Page for Project 4</title>	
+    <link rel="stylesheet" type="text/css" href="./src/stylesheet.css">	
+    <link rel="shortcut icon" href="./src/styler.png">
+  </head>	
+  <body>	
+    <div>	
+      <!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fkeonlee9420.github.io%2FSTYLER-Demo%2F&amp;count_bg=%2379C83D&amp;title_bg=%23555555&amp;icon=pytorch.svg&amp;icon_color=%23E7E7E7&amp;title=hits&amp;edge_flat=false"></a> */ -->
+      <article>	
+        <header>	
+          <h1>Demo Page for LA-TTS</h1>	
+        </header>	
+      </article>	
+      <p><b>Notes:	
+        Baseline Models: A, B
+        Proposed Model: C
+      </b></p>
+
+
+
+      <h2>Part 1<h2>
+        <p><b>Directions: Choose the audio (A, B, OR C) that is MOST similar to the voice in the input audio.
+        </b></p>
+      <h3>Part 1: Seen Languages Seen Speakers</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>A: Baseline1 (Xvector) </th><th>B: Baseline2 (Ecapa)</th><th>C: Proposed</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: <i>Source Language: Portuguese</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenParallel/78_369_000006_000002.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenParallel/Mellotron_78_Sspk.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenParallel/78_369_000006_000002_As night approached I found myself at the entrance of the cemetery where William, Elizabeth, and my .wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenParallel/['78_369_000006_000002_As night approached I found myself at the entrance of the cemetery where William, Elizabeth, and my '].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: <i>Source Language: Polish</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenParallel/87_121553_000010_000000.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenParallel/Mellotron_87_Sspk.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenParallel/87_121553_000010_000000_And make the people here, through covenant God set with Noah, presageful of the world That shall no .wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenParallel/['87_121553_000010_000000_And make the people here, through covenant God set with Noah, presageful of the world That shall no '].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: <i>Source Language: Korean</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenParallel/5750_100289_000001_000000.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenParallel/Mellotron_5750.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenParallel/5750_100289_000001_000000_THE INDIAN IN COLLEGE AND THE PROFESSIONS.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenParallel/['5750_100289_000001_000000_THE INDIAN IN COLLEGE AND THE PROFESSIONS'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>4: <i>Source Language: English</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenParallel/8609_283227_000001_000001.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenParallel/Mellotron_8609.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenParallel/8609_283227_000001_000001_So little seemed to fall to the duty of the churchwarden that I regarded the neglect as a trifle, an.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenParallel/['8609_283227_000001_000001_So little seemed to fall to the duty of the churchwarden that I regarded the neglect as a trifle, an'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <!-- <tr class="info"><td colspan="4"><span>5: p263_157, <i>"Drugs are used a lot at the fishing, not just cannabis."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_ref.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_fastspeech2.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/style_transfers/p_p263_157_s/p263_157_p_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>	 -->
+        </tbody>	
+      </table>
+      
+      
+
+      <h3>Part 1: Seen Languages Unseen Speakers</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>A: Baseline1 (Xvector) </th><th>B: Baseline2 (Ecapa)</th><th>C: Proposed</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: <i>Source Language: Indian</i>(audio content), <br><i>"People have been placed in a state of alarm." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenUnparallel/39_121915_000005_000000.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenUnparallel/Mellotron_39_np.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenUnparallel/39_121915_000005_000000_People have been placed in a state of alarm..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenUnparallel/['39_121915_000005_000000_People have been placed in a state of alarm.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: <i>Source Language: English</i>(audio content), <br><i>"The beach and the oak." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenUnparallel/5750_100289_000001_000000.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenUnparallel/Mellotron_5750_np.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenUnparallel/5750_100289_000001_000000_The beech and the oak..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenUnparallel/['5750_100289_000001_000000_THE BEECH AND THE OAK'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: <i>Source Language: Spanish</i>(audio content), <br><i>"It makes no difference to their friendship." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenUnparallel/7190_90543_000004_000001.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenUnparallel/Mellotron_7190_np_v1-forW2V.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenUnparallel/7190_90543_000004_000001_It makes no difference to their friendship..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenUnparallel/['7190_90543_000004_000001_It makes no difference to their friendship.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+
+          <tr class="info"><td colspan="4"><span>3: <i>Source Language: French</i>(audio content), <br><i>"It makes no difference to their friendship." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/SeenUnparallel/7190_90543_000004_000001.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/SeenUnparallel/Mellotron_7190_np_v1-forW2V.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/SeenUnparallel/7190_90543_000004_000001_It makes no difference to their friendship..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/SeenUnparallel/['7190_90543_000004_000001_It makes no difference to their friendship.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>	
+
+
+
+      <h3>Part 1: Unseen Languages Unseen Speakers</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>A: Baseline1 (Xvector) </th><th>B: Baseline2 (Ecapa)</th><th>C: Proposed</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: <i>Source Language: Icelandic</i> </span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenParallel/p245_029.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenParallel/Mellotron_p245_029.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenParallel/p245_029_Several other countries are also reported to be interested in the fodmaps.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenParallel/['p245_029_Several other countries are also reported to be interested in the fodmaps'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: <i>Source Language: isiXhosa</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenParallel/p294_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenParallel/Mellotron_p294_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenParallel/p294_005_She can scoop these things into three red bags, and we will go meet her Wednesday at the train stati.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenParallel/['p294_005_She can scoop these things into three red bags, and we will go meet her Wednesday at the train stati'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: <i>Source Language: Javanese</i> </span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenParallel/p261_064.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenParallel/Mellotron_p261_064.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenParallel/p261_064_He becomes the new minister for sports and culture..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenParallel/Proposed_p261_064.wav" type="audio/wav"></audio></td>	
+          </tr>	
+
+          <tr class="info"><td colspan="4"><span>3: <i>Source Language: Afrikaans</i> </span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenParallel/p261_064.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenParallel/Mellotron_p261_064.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenParallel/p261_064_He becomes the new minister for sports and culture..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenParallel/Proposed_p261_064.wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>
+      
+
+
+      
+      <h2>Part 2<h2>
+        <p><b>Directions: Choose the audio (either A OR B) that is MOST similar to the voice in the input audio.
+        </b></p>
+      <h3>Part 2: Seen Languages Seen Speakers</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>A: Mellotron </th><th>B: Meta StyleSpeech</th><th>C: Proposed</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: <i>"She can scoop these things into three red bags, and we will go meet her Wednesday at the train station."</i> (audio content), <br><i>"What is that called and why." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/p294_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_p294_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/p294_005_what is that called and why..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['p294_005_What is that called and why.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: <i>"She can scoop these things into three red bags, and we will go meet her Wednesday at the train station."</i> (audio content), <br><i>"Six spoons of fresh snow peas and cheese" </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/p347_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_p347_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/p347_005_Six spoons of fresh snow peas and cheese..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['p347_005_Six spoons of fresh snow peas and cheese.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: <i>"Please call Stella."</i> (audio content), <br><i>"I need Stella right now." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/VCTK_p225_001.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_VCTK_p225_001.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/VCTK_p225_001_I need Stella right now..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['VCTK_p225_001_I need Stella right now.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>
+
+      <h3>Part 2: Seen Languages Unseen Speakers</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>A: Mellotron </th><th>B: Meta StyleSpeech</th><th>C: Proposed</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: <i>"She can scoop these things into three red bags, and we will go meet her Wednesday at the train station."</i> (audio content), <br><i>"What is that called and why." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/p294_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_p294_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/p294_005_what is that called and why..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['p294_005_What is that called and why.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: <i>"She can scoop these things into three red bags, and we will go meet her Wednesday at the train station."</i> (audio content), <br><i>"Six spoons of fresh snow peas and cheese" </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/p347_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_p347_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/p347_005_Six spoons of fresh snow peas and cheese..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['p347_005_Six spoons of fresh snow peas and cheese.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: <i>"Please call Stella."</i> (audio content), <br><i>"I need Stella right now." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/VCTK_p225_001.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_VCTK_p225_001.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/VCTK_p225_001_I need Stella right now..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['VCTK_p225_001_I need Stella right now.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>
+
+      <h3>Part 2: Unseen Language Unseen Speakers</h3>
+       <table class="fixed">	
+        <thead>	
+          <tr>	
+            <th>Input Audio (Ground-truth)</th><th>A: Mellotron </th><th>B: Meta StyleSpeech</th><th>C: Proposed</th>	
+          </tr>	
+        </thead>	
+        <tbody>	
+          
+          <tr class="info"><td colspan="4"><span>1: <i>"She can scoop these things into three red bags, and we will go meet her Wednesday at the train station."</i> (audio content), <br><i>"What is that called and why." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/p294_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_p294_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/p294_005_what is that called and why..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['p294_005_What is that called and why.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>2: <i>"She can scoop these things into three red bags, and we will go meet her Wednesday at the train station."</i> (audio content), <br><i>"Six spoons of fresh snow peas and cheese" </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/p347_005.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_p347_005.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/p347_005_Six spoons of fresh snow peas and cheese..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['p347_005_Six spoons of fresh snow peas and cheese.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+          
+          <tr class="info"><td colspan="4"><span>3: <i>"Please call Stella."</i> (audio content), <br><i>"I need Stella right now." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="samples/ReferenceAudio/UnseenUnparallel/VCTK_p225_001.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/A_Mellotron/UnseenUnparallel/Mellotron_VCTK_p225_001.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="samples/B_MetaStyleSpeech/UnseenUnparallel/VCTK_p225_001_I need Stella right now..wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="samples/C_Proposed/UnseenUnparallel/['VCTK_p225_001_I need Stella right now.'].wav" type="audio/wav"></audio></td>	
+          </tr>	
+        </tbody>	
+      </table>
+
+      <!-- <h2>Robustness</h2>	
+      <h3>Repeated and Ignored Words</h3>
+      <table class="fixed">
+        <thead>	
+          <tr>	
+            <th>STYLER</th><th>Mellotron</th>
+          </tr>	
+        </thead>		
+        <tbody>	
+          <tr class="info"><td colspan="2"><span>1: p323_229, <i>"That period was a struggle."</i></span></td></tr>	
+          <tr>
+            <td><audio controls=""><source src="./src/robustness/repeated/p239_345_styler.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/repeated/p239_345_mellotron.wav" type="audio/wav"></audio></td>
+          </tr>
+          <tr class="info"><td colspan="2"><span>2: p248_130, <i>"Had had been had had had not had but had had and had."</i></span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/robustness/repeated/p248_130_styler.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/repeated/p248_130_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>
+        </tbody>	
+      </table>
+
+      <h3>Style Transfer from Noisy Reference Audio</h3>
+      <table class="fixed">
+        <thead>	
+          <tr>	
+            <th>Noisy Audio (Ground-truth)</th><th>STYLER (Noisy Decoding)</th><th>STYLER (Clean Decoding)</th><th>Mellotron</th>
+          </tr>	
+        </thead>		
+        <tbody>	
+          <tr class="info"><td colspan="4"><span>1: Male seen speaker with SNR 23 (p237_274), <i>"One mp said he feared the job losses were only the beginning."</i> (audio content), <br><i>"The difference in the rainbow depends considerably upon the size of the drops, and the width of the colored band increases as the size of the drops increases." </i> (target text)</span></td></tr>	
+          <tr>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_ref_SNR_23.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_styler_noisy.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_styler_clean.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p237_274_mellotron.wav" type="audio/wav"></audio></td>	
+          </tr>
+          <tr class="info"><td colspan="4"><span>2: Female seen speaker with SNR 23 (p297_004), <i>"We also need a small plastic snake and a big toy frog for the kids."</i> (audio content), <br><i>"The next eight weeks are critical to us." </i> (target text)</span></td></tr>	
+          <tr>
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_ref_SNR_23.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_styler_noisy.wav" type="audio/wav"></audio></td>	
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_styler_clean.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="./src/robustness/noisy/p297_004_mellotron.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>	
+      </table> -->
+
+    </div>	
+  <script type="text/javascript" src="./src/script.js"></script>
+  	
+	
+</body></html>
