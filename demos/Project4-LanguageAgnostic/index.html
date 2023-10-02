@@ -163,7 +163,9 @@
         </tbody>	
       </table>
       
-
+      <br>
+      <br>
+      <br>
 
       
       <h2>Part 2<h2>
@@ -173,7 +175,7 @@
         <table class="fixed">	
          <thead>	
            <tr>	
-             <th>Input Audio (Ground-truth)</th><th>A: Baseline1 (Xvector) </th><th>B: Baseline2 (Ecapa)</th><th>C: Proposed</th>	
+             <th>Input Audio (Ground-truth)</th><th>A: SE-K_F0-QV_noLA</th><th>B: SE-K_LA-QV_F0-Q</th><th>C: SE-K_LA-QV_noF0</th><th>D: Proposed</th>	
            </tr>	
          </thead>	
          <tbody>	
@@ -181,33 +183,37 @@
            <tr class="info"><td colspan="4"><span>1: <i>Source Language: Portuguese</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Portuguese-DM/DM_audio12.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Portuguese-DM/xvect['Diogo_Morgado_Portuguese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Portuguese-DM/ecapa['Diogo_Morgado_Portuguese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Portuguese-DM/SE-K_F0-QV_noLA_GST6['Diogo_Morgado_Portuguese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Portuguese-DM/SE-K_LA-QV_F0-Q_GST66['Diogo_Morgado_Portuguese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Portuguese-DM/SE-K_LA-QV_noF0_GST6['Diogo_Morgado_Portuguese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
              <td><audio controls=""><source src="samples/Portuguese-DM/proposed['Diogo_Morgado_Portuguese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
            </tr>	
            
            <tr class="info"><td colspan="4"><span>2: <i>Source Language: Polish</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Polish-Iza/IS_audio5.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Polish-Iza/xvect['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Polish-Iza/ecapa['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Polish-Iza/proposed['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Polish-Iza/SE-K_F0-QV_noLA_GST6['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Polish-Iza/SE-K_LA-QV_F0-Q_GST66['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Polish-Iza/SE-K_LA-QV_noF0_GST6['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Polish-Iza/proposed['Izabella_Scorupco_Polish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
            </tr>	
            
            <tr class="info"><td colspan="4"><span>3: <i>Source Language: Korean</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/korean/audio7.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/korean/xvector['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/korean/ecapa['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/korean/proposed['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/korean/SE-K_F0-QV_noLA_GST6['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/korean/SE-K_LA-QV_F0-Q_GST66['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/korean/SE-K_LA-QV_noF0_GST6['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/korean/proposed['hyegyo_song_Korean_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
            </tr>	
            
            <tr class="info"><td colspan="4"><span>4: <i>Source Language: English</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/English-Libri/19_198_000000_000000.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/English-Libri/xvect['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/English-Libri/ecapa['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/English-Libri/proposed['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/English-Libri/SE-K_F0-QV_noLA_GST6['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/English-Libri/SE-K_LA-QV_F0-Q_GST66['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/English-Libri/SE-K_LA-QV_noF0_GST6['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/English-Libri/proposed['LibriTTS_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
            </tr>	
            
            <!-- <tr class="info"><td colspan="4"><span>5: p263_157, <i>"Drugs are used a lot at the fishing, not just cannabis."</i></span></td></tr>	
@@ -226,7 +232,7 @@
         <table class="fixed">	
          <thead>	
            <tr>	
-             <th>Input Audio (Ground-truth)</th><th>A: Baseline1 (Xvector) </th><th>B: Baseline2 (Ecapa)</th><th>C: Proposed</th>	
+            <th>Input Audio (Ground-truth)</th><th>A: SE-K_F0-QV_noLA</th><th>B: SE-K_LA-QV_F0-Q</th><th>C: SE-K_LA-QV_noF0</th><th>D: Proposed</th>	
            </tr>	
          </thead>	
          <tbody>	
@@ -234,33 +240,37 @@
            <tr class="info"><td colspan="4"><span>1: <i>Source Language: Indian</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Indian-Emraan/00001.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Indian-Emraan/xvect['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/Indian-Emraan/ecapa['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Indian-Emraan/proposed['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Indian-Emraan/SE-K_F0-QV_noLA_GST6['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Indian-Emraan/SE-K_LA-QV_F0-Q_GST66['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Indian-Emraan/SE-K_LA-QV_noF0_GST6['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Indian-Emraan/proposed['Emraan_Hashmi_Indian_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
            </tr>	
            
            <tr class="info"><td colspan="4"><span>2: <i>Source Language: English</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/English-Eddie/ho_r24dlPTQ_00001.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/English-Eddie/xvector['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/English-Eddie/ecapa['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/English-Eddie/proposed['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/English-Eddie/SE-K_F0-QV_noLA_GST6['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/English-Eddie/SE-K_LA-QV_F0-Q_GST66['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/English-Eddie/SE-K_LA-QV_noF0_GST6['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/English-Eddie/proposed['Eddie_Griffin_English_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
            </tr>	
            
            <tr class="info"><td colspan="4"><span>3: <i>Source Language: Spanish</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Spanish/00002.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Spanish/xvector['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/Spanish/ecapa['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Spanish/proposed['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Spanish/SE-K_F0-QV_noLA_GST6['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Spanish/SE-K_LA-QV_F0-Q_GST66['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Spanish/SE-K_LA-QV_noF0_GST6['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wavv" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Spanish/proposed['Eugenio_Derbex_Mexico_Spanish_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
            </tr>	
  
            <tr class="info"><td colspan="4"><span>3: <i>Source Language: French</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/French-Elodie/00001.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/French-Elodie/xvect['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/French-Elodie/ecapa['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/French-Elodie/proposed['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/French-Elodie/SE-K_F0-QV_noLA_GST6['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/French-Elodie/SE-K_LA-QV_F0-Q_GST66['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/French-Elodie/SE-K_LA-QV_noF0_GST6['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/French-Elodie/proposed['Elodie_Yung_French_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
            </tr>	
          </tbody>	
        </table>	
@@ -271,7 +281,7 @@
         <table class="fixed">	
          <thead>	
            <tr>	
-             <th>Input Audio (Ground-truth)</th><th>A: Baseline1 (Xvector) </th><th>B: Baseline2 (Ecapa)</th><th>C: Proposed</th>	
+            <th>Input Audio (Ground-truth)</th><th>A: SE-K_F0-QV_noLA</th><th>B: SE-K_LA-QV_F0-Q</th><th>C: SE-K_LA-QV_noF0</th><th>D: Proposed</th>	
            </tr>	
          </thead>	
          <tbody>	
@@ -279,33 +289,37 @@
            <tr class="info"><td colspan="4"><span>1: <i>Source Language: Icelandic</i> </span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Icelandic/000001-0000003.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Icelandic/xvect['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Icelandic/ecapa['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Icelandic/proposed['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Icelandic/SE-K_F0-QV_noLA_GST6['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Icelandic/SE-K_LA-QV_F0-Q_GST66['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Icelandic/SE-K_LA-QV_noF0_GST6['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Icelandic/proposed['Icelandic_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
            </tr>	
            
            <tr class="info"><td colspan="4"><span>2: <i>Source Language: isiXhosa</i></span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/isiXhosa/xho_0050_0015203558.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/isiXhosa/xvect['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/isiXhosa/ecapa['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/isiXhosa/proposed['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/isiXhosa/SE-K_F0-QV_noLA_GST6['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/isiXhosa/SE-K_LA-QV_F0-Q_GST66['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/isiXhosa/SE-K_LA-QV_noF0_GST6['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/isiXhosa/proposed['isiXhosa_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
            </tr>	
            
            <tr class="info"><td colspan="4"><span>3: <i>Source Language: Javanese</i> </span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Javanese/jvf_00264_00026796079.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Javanese/xvect['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/Javanese/ecapa['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Javanese/proposed['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Javanese/SE-K_F0-QV_noLA_GST6['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Javanese/SE-K_LA-QV_F0-Q_GST66['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Javanese/SE-K_LA-QV_noF0_GST6['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Javanese/proposed['Javanese_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
            </tr>	
  
            <tr class="info"><td colspan="4"><span>3: <i>Source Language: Afrikaans</i> </span></td></tr>	
            <tr>	
              <td><audio controls=""><source src="samples/Afrikaans/afr_0184_0007791035.wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Afrikaans/xvector['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
-             <td><audio controls=""><source src="samples/Afrikaans/ecapa['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
-             <td><audio controls=""><source src="samples/Afrikaans/proposed['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Afrikaans/SE-K_F0-QV_noLA_GST6['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Afrikaans/SE-K_LA-QV_F0-Q_GST66['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
+             <td><audio controls=""><source src="samples/[ablation]/Afrikaans/SE-K_LA-QV_noF0_GST6['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>
+             <td><audio controls=""><source src="samples/[ablation]/Afrikaans/proposed['Afrikaans_There are few things better in life than a slice of pie.'].wav" type="audio/wav"></audio></td>	
            </tr>	
          </tbody>	
        </table>
