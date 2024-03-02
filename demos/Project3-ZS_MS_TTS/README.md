@@ -1,2 +1,1 @@
-This project is based on subtractive methodologies to improve zero shot multispeaker TTS. 
-AAAI 2024
+A24
