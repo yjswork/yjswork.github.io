@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Vocalizing Visual Identities Using Progressive Feature Aggregation">
-  <meta name="keywords" content="multi-modality, face-to-speech, voice generation">
+        content="Face-StyleSpeech: Improved Face-to-Voice latent mapping for Natural Zero-shot Speech Synthesis from a Face Image">
+  <meta name="keywords" content="Text-to-speech Synthesis, Zero-shot TTS, Face-to-Voice Mapping, Face-based TTS">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Face-StyleSpeech</title>
 
@@ -28,6 +28,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/AITRICS_Symbol.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -41,11 +42,47 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Face-StyleSpeech</h1>
+          <h4 class="title is-3 publication-title">Improved Face-to-Voice latent mapping for <br> Natural Zero-shot Speech Synthesis from a Face Image</h4>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Minki Kang</a><sup>1,2*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Wooseok Han</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Eunho Yang</a><sup>1,2</sup></span>
+          </div>
 
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>AITRICS</span>
+            <span class="author-block"><sup>2</sup>KAIST</span>
+          </div>
+          <div class="is-size-8 publication-authors">
+            <span class="email-block">zzxc1133@kaist.ac.kr, hwrg@aitrics.com, eunhoy@kaist.ac.kr</span>
+          </div>
+          <div class="is-size-8 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2311.05844"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -61,9 +98,9 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 1</h3>
         <div class="is-vcentered">
-            <img src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person1.png" width=220/>
+            <img src="./static/images/person1.png" width=220/>
             <p>
-              <b>Text</b>: I both love and hate the business of human resources and you will soon understand why.
+              <b>Text</b>: However, he held out little hope that the Government would take action.
               <br><br>
             </p>
         </div>
@@ -94,11 +131,11 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 2</h3>
+        <h3 class="title is-4">Case 2 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person2.png" width=220/>
+            <img src="./static/images/mos2.jpg" width=220/>
             <p>
-              <b>Text</b>: Why could they share their ideas so easily and I couldn't even come up with a topic.
+              <b>Text</b>: It's great, because it takes a lot of pressure off the players.
               <br><br>
             </p>
         </div>
@@ -128,9 +165,9 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 3</h3>
+        <h3 class="title is-4">Case 3 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person3.png" width=220/>
+            <img src="./static/images/mos3.jpg" width=220/>
             <p>
               <b>Text</b>: They made clear that they are not interested in Government assistance.
               <br><br>
@@ -162,9 +199,9 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 4</h3>
+        <h3 class="title is-4">Case 4 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person4.png" width=220/>
+            <img src="./static/images/mos4.jpg" width=220/>
             <p>
               <b>Text</b>: We must provide a long-term solution to tackle this attitude.
               <br><br>
@@ -197,9 +234,9 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 5</h3>
+        <h3 class="title is-4">Case 5 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person5.png" width=220/>
+            <img src="./static/images/mos5.jpg" width=220/>
             <p>
               <b>Text</b>: Over time, with patience and precision, the terrorists will be pursued.
               <br><br>
@@ -231,9 +268,9 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 6</h3>
+        <h3 class="title is-4">Case 6 (Real face from LRS3 dataset)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person6.png"/>
+            <img style="width: 224px;" src="./static/images/mos6.png"/>
             <p>
               <b>Text</b>: The guidelines are expected to be finalised before next spring.
               <br><br>
@@ -264,9 +301,9 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 7</h3>
+        <h3 class="title is-4">Case 7 (Real face from LRS3 dataset)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person7.png"/>
+            <img style="width: 224px;" src="./static/images/mos7.png"/>
             <p>
               <b>Text</b>: To the Hebrews it was a token that there would be no more universal floods.
               <br><br>
@@ -299,9 +336,9 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 8</h3>
+        <h3 class="title is-4">Case 8 (Real face from LRS3 dataset)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/person8.png"/>
+            <img style="width: 224px;" src="./static/images/mos8.png"/>
             <p>
               <b>Text</b>: Many complicated ideas about the rainbow have been formed.
               <br><br>
@@ -335,7 +372,7 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 9 (Synthesized face from <a href="https://generated.photos">generated.photos</a>)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/mos9.png"/>
+            <img style="width: 224px;" src="./static/images/mos9.png"/>
             <p>
               <b>Text</b>: These take the shape of a long round arch, with its path high above, and its two ends apparently beyond the horizon.
               <br><br>
@@ -369,7 +406,7 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 10 (Synthesized face from <a href="https://generated.photos">generated.photos</a>)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/mos10.png"/>
+            <img style="width: 224px;" src="./static/images/mos10.png"/>
             <p>
               <b>Text</b>: The actual primary rainbow observed is said to be the effect of super-imposition of a number of bows.
               <br><br>
@@ -403,7 +440,7 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 11 (Synthesized face from <a href="https://generated.photos">generated.photos</a>)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/mos11.png"/>
+            <img style="width: 224px;" src="./static/images/mos11.png"/>
             <p>
               <b>Text</b>: We have always maintained that we would never abandon Scottish football.
               <br><br>
@@ -437,7 +474,7 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 12 (Synthesized face from <a href="https://generated.photos">generated.photos</a>)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="/home/jeonyj0612/yjswork.github.io/demos/Project6-MultiModal-F2S/static/images/mos12.png"/>
+            <img style="width: 224px;" src="./static/images/mos12.png"/>
             <p>
               <b>Text</b>: Throughout the centuries people have explained the rainbow in various ways.
               <br><br>
@@ -470,7 +507,7 @@
   </div>
 </section>
 
-<!-- <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{kang2024facestylespeech,
@@ -480,7 +517,7 @@
       year      = {2024},
     }</code></pre>
   </div>
-</section> -->
+</section>
 
 
   <footer class="footer">
