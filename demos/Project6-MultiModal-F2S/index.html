@@ -85,63 +85,6 @@
 </section>
 
 
-<!-- <section class="section" style="padding-top: 0px;">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        
-        <section class="hero teaser">
-            <div class="hero-body">
-                <div class="columns is-vcentered is-centered">
-                      <img src="./static/images/concept.png" width="550"/>
-                </div>
-            </div>
-        </section>
-
-        <div class="content has-text-justified">
-          <p>
-            Generating a voice from a face image is crucial for developing virtual humans capable of interacting using their unique voices, without relying on pre-recorded human speech. 
-            In this paper, we propose <b>Face-StyleSpeech</b>, a zero-shot Text-To-Speech (TTS) synthesis model that generates natural speech <u>conditioned on a face image rather than reference speech</u>. 
-
-            We hypothesize that learning both speaker identity and prosody from a face image poses a significant challenge. 
-            To address the issue, our TTS model incorporates both a face encoder and a prosody encoder. 
-
-            The prosody encoder is specifically designed to model prosodic features that are not captured only with a face image, allowing the face encoder to focus solely on capturing the speaker identity from the face image. 
-            Experimental results demonstrate that Face-StyleSpeech effectively generates more natural speech from a face image than baselines, even for the face images the model has not trained.<br><br>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-  </div>
-</section> -->
-
-
-<section class="hero teaser">
-  <div class="container is-max-desktop is-centered has-text-centered">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Model Overview</h2>
-          <img src="./static/images/model_overview.png"
-                    class="interpolation-image"
-                    alt="Interpolate start reference image."/>
-          <h2 class="has-text-centered is-8">
-            The TTS model generates speech given the text embedding, prosody codes, and the speech vector. 
-            We train the face encoder to generate a face vector mapped to the paired speech vector.<br> 
-            In inference, we use the face vector from the face encoder and prosody codes from<br> the prosody language model and the prompt speech.
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
