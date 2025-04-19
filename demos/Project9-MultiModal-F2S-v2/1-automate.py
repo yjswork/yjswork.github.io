@@ -11,7 +11,7 @@ facetts_dir = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-
 fvtts_dir = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-v2/static/wavs/1-fvtts-interspeech2024'
 proposed_dir = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-v2/static/wavs/3-6-DoubleClassifier-2attGenderRace-0.3-350000'
 gt_audio_dir = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-v2/static/wavs/0-gt_audio'
-gt_image_dir = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-v2/static/wavs/0-gt_images'
+gt_image_dir = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-v2/static/wavs/0-gt_imagesv2'
 
 output_html = '/home/jeonyj0612/yjswork.github.io/demos/Project9-MultiModal-F2S-v2/index.html'
 
@@ -68,7 +68,7 @@ for i, id in enumerate(ids):
     facetts_audio = find_file_with_id(facetts_dir, id)
     fvtts_audio = find_file_with_id(fvtts_dir, id)
     proposed_audio = find_file_with_id(proposed_dir, id)
-    gt_image = find_image_file(gt_image_dir, id, 'jpg')
+    gt_image = find_file_with_id(gt_image_dir, id)
 
     part1_section += f'''
     <div class="columns is-centered">
