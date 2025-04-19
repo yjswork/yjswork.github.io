@@ -57,25 +57,25 @@ for i, id in enumerate(ids):
         <div class="content">
           <p><b>Ground Truth</b></p>
           <audio controls>
-            <source src="forDemo/gt-{id}.wav" type="audio/wav">
+            <source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/gt-{id}.wav" type="audio/wav">
           </audio>
         </div><br>
         <div class="columns is-centered">
           <div class="column content has-text-centered">
             <p><b>Model-A</b></p>
-            <audio controls><source src="forDemo/pluster-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/pluster-{id}.wav" type="audio/wav"></audio>
           </div>
           <div class="column content has-text-centered">
             <p><b>Model-B</b></p>
-            <audio controls><source src="forDemo/FaceTTS-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/FaceTTS-{id}.wav" type="audio/wav"></audio>
           </div>
           <div class="column content has-text-centered">
             <p><b>Model-C</b></p>
-            <audio controls><source src="forDemo/FVTTS-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/FVTTS-{id}.wav" type="audio/wav"></audio>
           </div>
           <div class="column content has-text-centered">
             <p><b>Model-D</b></p>
-            <audio controls><source src="forDemo/proposed-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/proposed-{id}.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
@@ -92,24 +92,24 @@ for i, id in enumerate(ids):
       <div class="column is-four-fifths">
         <div class="content">
           <p><b>Ground Truth Image</b></p>
-          <img src="forDemo/image-{id}.jpg" width="200">
+          <img src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/image-{id}.jpg" width="200">
         </div><br>
         <div class="columns is-centered">
           <div class="column content has-text-centered">
             <p><b>Model-A</b></p>
-            <audio controls><source src="forDemo/pluster-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/pluster-{id}.wav" type="audio/wav"></audio>
           </div>
           <div class="column content has-text-centered">
             <p><b>Model-B</b></p>
-            <audio controls><source src="forDemo/FaceTTS-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/FaceTTS-{id}.wav" type="audio/wav"></audio>
           </div>
           <div class="column content has-text-centered">
             <p><b>Model-C</b></p>
-            <audio controls><source src="forDemo/FVTTS-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/FVTTS-{id}.wav" type="audio/wav"></audio>
           </div>
           <div class="column content has-text-centered">
             <p><b>Model-D</b></p>
-            <audio controls><source src="forDemo/proposed-{id}.wav" type="audio/wav"></audio>
+            <audio controls><source src="/demos/Project9-MultiModla-F2S-v2/wavs/forDemo/proposed-{id}.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
