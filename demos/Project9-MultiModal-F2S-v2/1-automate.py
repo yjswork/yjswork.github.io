@@ -55,12 +55,10 @@ def find_file_with_id(directory, id):
     print(f"[Warning] ID {id} not found in {directory}")
     return None
 
-def find_image_file(directory, id):
-    pattern = re.compile(rf'^{id}_.*-.*\\.jpg$')
+def find_image_file(directory, id, extension):
     for f in os.listdir(directory):
-        if pattern.match(f):
+        if re.match(fr'.*{id}(?:_|-)?.*\.{extension}$', f):
             return f
-    print(f"[Warning] Image ID {id} not found in {directory}")
     return None
 
 
@@ -70,7 +68,7 @@ for i, id in enumerate(ids):
     facetts_audio = find_file_with_id(facetts_dir, id)
     fvtts_audio = find_file_with_id(fvtts_dir, id)
     proposed_audio = find_file_with_id(proposed_dir, id)
-    gt_image = find_image_file(gt_image_dir, id)
+    gt_image = find_image_file(gt_image_dir, id, 'jpg')
 
     part1_section += f'''
     <div class="columns is-centered">
