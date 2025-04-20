@@ -68,7 +68,7 @@ for i, id in enumerate(ids):
     facetts_audio = find_file_with_id(facetts_dir, id)
     fvtts_audio = find_file_with_id(fvtts_dir, id)
     proposed_audio = find_file_with_id(proposed_dir, id)
-    gt_image = find_file_with_id(gt_image_dir, id)
+    gt_image = find_image_file(gt_image_dir, id, 'jpg')
 
     part1_section += f'''
     <div class="columns is-centered">
@@ -79,7 +79,7 @@ for i, id in enumerate(ids):
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content">
-          <p><b>Ground Truth</b></p>
+          <p><b>Ground Truth Audio</b></p>
           <audio controls>
             <source src="{gt_audio_dir}/{gt_audio}" type="audio/wav">
           </audio>
@@ -105,6 +105,51 @@ for i, id in enumerate(ids):
       </div>
     </div><br><br>
     '''
+
+    # part2_section += f'''
+    # <div class="columns is-centered">
+    #   <div class="column is-four-fifths has-text-centered">
+    #     <h4 class="title is-4">Part 2 - Case {i+1}</h4>
+    #   </div>
+    # </div>
+    # <div class="columns is-centered has-text-centered">
+    #   <div class="column is-four-fifths">
+    #     <div class="content">
+    #       <p><b>Ground Truth Image</b></p>
+    #       <img src="{gt_image_dir}/{gt_image}" width="200">
+    #     </div><br>
+    #     <div class="columns is-centered">
+    #       <div class="column content has-text-centered">
+    #         <p><b>Model-A</b></p>
+    #         <audio controls><source src="{pluster_dir}/{pluster_audio}" type="audio/wav"></audio>
+    #       </div>
+    #       <div class="column content has-text-centered">
+    #         <p><b>Model-B</b></p>
+    #         <audio controls><source src="{facetts_dir}/{facetts_audio}" type="audio/wav"></audio>
+    #       </div>
+    #       <div class="column content has-text-centered">
+    #         <p><b>Model-C</b></p>
+    #         <audio controls><source src="{fvtts_dir}/{fvtts_audio}" type="audio/wav"></audio>
+    #       </div>
+    #       <div class="column content has-text-centered">
+    #         <p><b>Model-D</b></p>
+    #         <audio controls><source src="{proposed_dir}/{proposed_audio}" type="audio/wav"></audio>
+    #       </div>
+    #     </div>
+    #   </div>
+    # </div><br><br>
+    # '''
+
+
+
+# Part 2: Audio + GT Image
+for i, id in enumerate(ids):
+    gt_audio = find_file_with_id(gt_audio_dir, id)
+    pluster_audio = find_file_with_id(pluster_dir, id)
+    facetts_audio = find_file_with_id(facetts_dir, id)
+    fvtts_audio = find_file_with_id(fvtts_dir, id)
+    proposed_audio = find_file_with_id(proposed_dir, id)
+    gt_image = find_image_file(gt_image_dir, id, 'jpg')
 
     part2_section += f'''
     <div class="columns is-centered">
@@ -143,4 +188,4 @@ for i, id in enumerate(ids):
 with open(output_html, 'w') as f:
     f.write(html_head + part1_section + part2_section + html_tail)
 
-print(f"HTML file '{output_html}' generated with {len(ids)} cases.")
+print(f"HTML file '{output_html}' generated with {len(ids)} cases in each part.")
